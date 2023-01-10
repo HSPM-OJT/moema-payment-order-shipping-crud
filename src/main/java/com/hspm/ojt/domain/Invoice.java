@@ -7,29 +7,30 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
-import jakarta.persistence.Table;
+import jakarta.persistence.PreUpdate;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "Orders")
-public class Order {
+public class Invoice {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Double subTotal;
-	private Double shippingCost;
-	private Double grandTotal;
-	private LocalDate orderDate;
-	
+	private LocalDate createdAt;
+	private LocalDate updatedAt;
 	
 	@PrePersist
-	void onOrder() {
-		this.orderDate = LocalDate.now();
+	void onCreate() {
+		this.createdAt = LocalDate.now();
+	}
+	
+	@PreUpdate
+	void onUpdate() {
+		this.updatedAt = LocalDate.now();
 	}
 
 }
