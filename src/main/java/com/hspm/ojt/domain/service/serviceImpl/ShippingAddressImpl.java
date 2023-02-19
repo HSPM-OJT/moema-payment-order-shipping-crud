@@ -24,10 +24,10 @@ public class ShippingAddressImpl implements ShippingAddressService{
 	@Override
 	public ShippingAddress saveOrUpdate(ShippingAddress shippingAddress) {
 		
-		Optional<ShippingAddress> shippingOpt = shippingAddressRepo.findById(shippingAddress.getShippingAddressId());
-		if(shippingOpt.isPresent()) {
-			shippingAddress.setShippingAddressId(shippingOpt.get().getShippingAddressId());
-		}
+//		Optional<ShippingAddress> shippingOpt = shippingAddressRepo.findById(shippingAddress.getShippingAddressId());
+//		if(shippingOpt.isPresent()) {
+//			shippingAddress.setShippingAddressId(shippingOpt.get().getShippingAddressId());
+//		}
 		
 		
 		return shippingAddressRepo.save(shippingAddress);
