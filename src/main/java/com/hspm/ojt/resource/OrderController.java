@@ -38,7 +38,7 @@ public class OrderController {
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<?> createPayment(@Valid @RequestBody Order order ,BindingResult result){
+	public ResponseEntity<?> createOrder(@Valid @RequestBody Order order ,BindingResult result){
 		
 		ResponseEntity<?> responseErrorObject = mapErrorService.validate(result);
 		

@@ -24,11 +24,11 @@ public class OrderImpl implements OrderService{
 	@Override
 	public Order saveOrUpdate(Order order) {
 		
-		Double subTotal = (double) (order.getPrice() * order.getQuantity());
-		order.setSubTotal(subTotal);
-		
-		Double grandTotal = order.getShippingCost() + subTotal;
-		order.setGrandTotal(grandTotal);
+//		Double subTotal = (double) (order.getPrice() * order.getQuantity());
+//		order.setSubTotal(subTotal);
+//		
+//		Double grandTotal = order.getShippingCost() + subTotal;
+//		order.setGrandTotal(grandTotal);
 		
 		return orderRepo.save(order);
 	}

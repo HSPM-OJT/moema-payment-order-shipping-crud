@@ -37,8 +37,8 @@ public class PaymentController {
 		this.mapErrorService = mapErrorService;
 	}
 	
-	@PostMapping("/create/{id}")
-	public ResponseEntity<?> createPayment(@Valid @RequestBody Payment payment,BindingResult result/*,@PathVariable Long id*/){
+	@PostMapping("/create")
+	public ResponseEntity<?> createPayment(@Valid @RequestBody Payment payment,BindingResult result){
 		
 		ResponseEntity<?> responseErrorObject = mapErrorService.validate(result);
 		

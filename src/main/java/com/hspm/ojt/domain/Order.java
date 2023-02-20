@@ -32,6 +32,9 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long orderId;
 	
+	@NotBlank(message ="Customer name is required")
+	private String customerName;
+	
 	//cartItem
 	@NotBlank(message = "Product name should not be blank")
 	private String productName;
@@ -44,12 +47,15 @@ public class Order {
 	private Double shippingCost;
 	private Double grandTotal;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	private LocalDate orderDate;
-	private LocalDate updateOrder;
 	
-	@NotBlank(message ="Customer name is required")
-	private String customerName;
+//	
+//	@JsonFormat(pattern = "yyyy-MM-dd")
+//	private LocalDate orderDate;
+//	@JsonFormat(pattern = "yyyy-MM-dd")
+//	private LocalDate updateDate;
+	
+	
+	
 //	@Email(message = "Email must be email.")
 //	private String email;
 //	private String phone;
@@ -66,16 +72,15 @@ public class Order {
 //	private String city;
 //	private String country;
 	
-	private 
-	
-	@PrePersist
-	void onOrderDate() {
-		this.orderDate = LocalDate.now();
-	}
-	
-	@PreUpdate
-	void onUpdateOrder() {
-		this.updateOrder = LocalDate.now();
-	}
+
+//	@PrePersist
+//	void onOrderDate() {
+//		this.orderDate = LocalDate.now();
+//	}
+//	
+//	@PreUpdate
+//	void onUpdateOrder() {
+//		this.updateDate = LocalDate.now();
+//	}
 
 }

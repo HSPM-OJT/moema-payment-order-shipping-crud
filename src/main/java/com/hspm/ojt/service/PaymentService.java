@@ -9,7 +9,9 @@ import com.hspm.ojt.domain.Payment;
 public interface PaymentService {
 	
 	
-	Payment saveOrUpdate(Payment payment/*,Long id*/);
+	//Payment saveOrUpdate(Payment payment/*,Long id*/);
+	
+	Payment saveOrUpdate(Payment payment);
 	
 	List<Payment> findAll();
 	

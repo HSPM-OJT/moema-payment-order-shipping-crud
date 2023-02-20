@@ -28,7 +28,7 @@ public class PaymentImpl implements PaymentService{
 	}
 
 	@Override
-	public Payment saveOrUpdate(Payment payment/*Long  id*/) {
+	public Payment saveOrUpdate(Payment payment) {
 		
 //		Optional <Payment> paymentOpt = paymentRepository.findById(payment.getPaymentId());
 //		if(paymentOpt.isPresent()) {
