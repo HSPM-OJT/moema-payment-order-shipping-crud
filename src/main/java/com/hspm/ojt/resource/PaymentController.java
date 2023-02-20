@@ -37,21 +37,39 @@ public class PaymentController {
 		this.mapErrorService = mapErrorService;
 	}
 	
-	@PostMapping("/create")
-	public ResponseEntity<?> createPayment(@Valid @RequestBody Payment payment,BindingResult result){
+	@PostMapping("/create/{id}")
+	public ResponseEntity<?> createPayment(@Valid @RequestBody Payment payment,BindingResult result,@PathVariable Long id){
 		
 		ResponseEntity<?> responseErrorObject = mapErrorService.validate(result);
 		
 		if(responseErrorObject != null) {
 			return responseErrorObject;
 		}
-		Payment createdPayment = paymentService.saveOrUpdate(payment);
+
+		Payment createdPayment = paymentService.saveOrUpdate(payment, id);
 		
 		
 		
 		return new ResponseEntity<Payment>(createdPayment,HttpStatus.CREATED);
 		
 	}
+	
+//	@PostMapping("/update")
+//	public ResponseEntity<?> createPayment(@Valid @RequestBody Payment payment,BindingResult result){
+//		
+//		ResponseEntity<?> responseErrorObject = mapErrorService.validate(result);
+//		
+//		if(responseErrorObject != null) {
+//			return responseErrorObject;
+//		}
+//
+//		Payment createdPayment = paymentService.saveOrUpdate(payment);
+//		
+//		
+//		
+//		return new ResponseEntity<Payment>(createdPayment,HttpStatus.CREATED);
+//		
+//	}
 	
 	@GetMapping("/all")
 	public List<Payment> findAll(){

@@ -51,10 +51,10 @@ public class Payment {
 	private LocalDate expireDate;
 
 
-//	@OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-//	@JoinColumn(name="order_id")
-//	@JsonIgnore
-//	private Order order;
+	@OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinColumn(name="order_id")
+	@JsonIgnore
+	private Order order;
 	
 
 	public Payment(String cardNumber, String cvc, String holderName, String cardType,LocalDate expireDate) {

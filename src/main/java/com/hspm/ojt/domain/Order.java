@@ -48,7 +48,7 @@ public class Order {
 	private Double grandTotal;
 	
 	
-//	
+	
 //	@JsonFormat(pattern = "yyyy-MM-dd")
 //	private LocalDate orderDate;
 //	@JsonFormat(pattern = "yyyy-MM-dd")
@@ -61,9 +61,9 @@ public class Order {
 //	private String phone;
 	//private String status = "active";
 	
-//	@OneToOne(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, orphanRemoval = true)
-//	@JsonIgnore
-//	private Payment payment;
+	@OneToOne(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, orphanRemoval = true)
+	@JsonIgnore
+	private Payment payment;
 	
 	//shippingAddress
 	

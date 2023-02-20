@@ -17,27 +17,28 @@ import com.hspm.ojt.service.PaymentService;
 public class PaymentImpl implements PaymentService{
 	
 	private final PaymentRepository paymentRepo;
-	//private final OrderRepository orderRepo;
+	private final OrderRepository orderRepo;
 
 	
 
-	public PaymentImpl(PaymentRepository paymentRepo/*, OrderRepository orderRepo*/) {
+	public PaymentImpl(PaymentRepository paymentRepo, OrderRepository orderRepo) {
 		super();
 		this.paymentRepo = paymentRepo;
-		//this.orderRepo = orderRepo;
+		this.orderRepo = orderRepo;
 	}
 
 	@Override
-	public Payment saveOrUpdate(Payment payment) {
+	public Payment saveOrUpdate(Payment payment,Long id) {
 		
 //		Optional <Payment> paymentOpt = paymentRepository.findById(payment.getPaymentId());
 //		if(paymentOpt.isPresent()) {
 //			payment.setPaymentId(paymentOpt.get().getPaymentId());
-		
+//		
 //		}
-//		Order order = orderRepo.findById(id).get();
-//		payment.setOrder(order);
-//		order.setPayment(payment);
+		Order order = orderRepo.findById(id).get();
+		order.setPayment(payment);
+		payment.setOrder(order);
+		
 		
 		return paymentRepo.save(payment);
 	}
@@ -60,6 +61,12 @@ public class PaymentImpl implements PaymentService{
 		paymentRepo.deleteById(id);
 		
 	}
+
+//	@Override
+//	public Payment updatePayment(Payment payment) {
+//		
+//		return paymentRepo.save(payment);
+//	}
 
 
 }
